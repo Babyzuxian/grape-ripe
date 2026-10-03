@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>葡萄成熟时 · BNB Chain MEME</title>
+<title>葡萄成熟时 · BNB Chain 首支音乐文化 MEME</title>
+<meta name="description" content="葡萄成熟时：BNB Chain 首支音乐文化 MEME 币，一首歌写成的币。谁都卖飞过，哪个没有？">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&family=Noto+Sans+SC:wght@500;700;900&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
@@ -52,7 +53,7 @@ svg{max-width:100%}
 @keyframes run{to{transform:translateX(-50%)}}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding:50px 0 30px}
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:center;padding-top:50px;padding-bottom:30px}
 .hero h1{font-size:clamp(96px,15vw,200px);line-height:.88;margin:0;color:#fff;text-shadow:6px 6px 0 var(--ink);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill}
 .hero h1 .row2{display:block;color:var(--lime)}
 .stickers{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 22px}
@@ -70,7 +71,7 @@ svg{max-width:100%}
 .cluster .hint{position:absolute;top:8%;right:0;transform:rotate(8deg);background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:14px;padding:6px 12px;font-weight:900;font-size:15px;box-shadow:3px 3px 0 var(--ink)}
 .grape{transition:transform .25s cubic-bezier(.3,1.8,.5,1);transform-box:fill-box;transform-origin:center}
 .grape.pop{transform:scale(1.18)}
-@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:30px}.cluster{order:-1}.cluster svg{max-width:280px}}
+@media(max-width:860px){.hero{grid-template-columns:minmax(0,1fr);padding-top:30px}.cluster{order:-1}.cluster svg{max-width:280px}}
 
 /* sections */
 section{padding:80px 0}
@@ -175,6 +176,49 @@ footer p{max-width:54em;margin:0 0 8px}
 @media(max-width:760px){.calc{grid-template-columns:1fr}}
 
 @media (prefers-reduced-motion:reduce){.game.shake{animation:none}}
+
+.hero>*{min-width:0}
+html,body{overflow-x:clip}
+@media(max-width:560px){
+  .wrap{padding:0 16px}
+  .hero{gap:18px;padding-top:20px;padding-bottom:10px}
+  .hero h1{font-size:clamp(72px,24vw,110px);-webkit-text-stroke:2px var(--ink);text-shadow:4px 4px 0 var(--ink)}
+  .stickers{gap:8px;margin:18px 0 16px}
+  .stk{font-size:14px;padding:3px 10px}
+  .hero .say{font-size:20px;margin-bottom:18px}
+  .ca{padding:6px 6px 6px 14px;gap:8px}
+  .ca code{font-size:12px}
+  .ca .btn{padding:8px 14px;font-size:14px}
+  .cta{gap:10px}
+  .cta .btn{flex:1 1 auto;justify-content:center;padding:10px 14px;font-size:15px}
+  .cluster .hint{right:4px;top:2%;font-size:13px}
+  .tape{font-size:20px;margin:22px -16px}
+  section{padding:56px 0}
+  .h2{font-size:clamp(46px,14vw,64px);-webkit-text-stroke:2px var(--ink);text-shadow:4px 4px 0 var(--ink)}
+  .lead{margin-bottom:28px;font-size:16px}
+  .verse{padding:22px 20px 18px}
+  .verse p{font-size:30px}
+  .box{box-shadow:4px 4px 0 var(--ink)}
+  .game{padding:16px}
+  #hChart{height:170px}
+  .tempt{min-height:50px;font-size:14px}
+  .rt{font-size:64px}
+  .holdbtn{width:min(190px,52vw);font-size:32px;box-shadow:6px 6px 0 var(--ink)}
+  .out{min-height:180px}
+  .form,.out{padding:18px}
+  .out{min-height:240px}
+  .tiles{gap:12px}
+  .tile{padding:14px}
+  .tile dd{font-size:22px}
+  .step{padding:22px 18px 18px}
+  .step svg{float:left;width:46px;height:46px;margin:4px 14px 0 0}
+  .step h3{font-size:32px}
+  .step .goal{margin:2px 0 6px}
+  .road{row-gap:28px}
+  .wall{gap:16px}
+  .nav .wrap{height:60px}
+  footer .big{font-size:52px}
+}
 </style>
 </head>
 <body>
@@ -201,10 +245,10 @@ footer p{max-width:54em;margin:0 0 8px}
       <h1 class="disp">葡萄<span class="row2">成熟时</span></h1>
       <div class="stickers">
         <span class="stk a lat">$TICKER</span>
-        <span class="stk b lat">BNB CHAIN</span>
+        <span class="stk b">🎵 BNB Chain 首支音乐文化 MEME</span>
         <span class="stk c">1% 税 · 全部销毁</span>
       </div>
-      <p class="say">谁都卖飞过，哪个没有？</p>
+      <p class="say">一首歌写成的币。<br>谁都卖飞过，哪个没有？</p>
       <div class="box ca">
         <span class="lbl">CA</span>
         <code id="caText">0xc9919a3b099e818A03437AeBD49aB954A97d7777</code>
@@ -241,8 +285,8 @@ footer p{max-width:54em;margin:0 0 8px}
   </div>
 
   <div class="tape disp" aria-hidden="true"><div>
-    <b>谁都卖飞过</b>✦<b>哪个没有</b>✦<b>你要 HOLD 住</b>✦<b>再 HOLD 住</b>✦<b>就算暴跌</b>✦<b>错的狗乃必经的配菜</b>✦
-    <b>谁都卖飞过</b>✦<b>哪个没有</b>✦<b>你要 HOLD 住</b>✦<b>再 HOLD 住</b>✦<b>就算暴跌</b>✦<b>错的狗乃必经的配菜</b>✦
+    <b>BNB Chain 首支音乐文化 MEME</b>✦<b>谁都卖飞过</b>✦<b>哪个没有</b>✦<b>你要 HOLD 住</b>✦<b>再 HOLD 住</b>✦<b>就算暴跌</b>✦<b>错的狗乃必经的配菜</b>✦
+    <b>BNB Chain 首支音乐文化 MEME</b>✦<b>谁都卖飞过</b>✦<b>哪个没有</b>✦<b>你要 HOLD 住</b>✦<b>再 HOLD 住</b>✦<b>就算暴跌</b>✦<b>错的狗乃必经的配菜</b>✦
   </div></div>
 
   <section id="lyrics">
@@ -296,7 +340,7 @@ footer p{max-width:54em;margin:0 0 8px}
           <p class="err" id="cErr" aria-live="polite"></p>
         </div>
         <div class="box out" id="cOut" aria-live="polite">
-          <p class="empty">填好左边三个数字，点「算算有多痛」。</p>
+          <p class="empty">填好三个数字，点「算算有多痛」。</p>
         </div>
       </div>
     </div>
