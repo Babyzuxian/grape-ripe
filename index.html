@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>葡萄成熟时 · BNB Chain MEME</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&family=Noto+Sans+SC:wght@500;700;900&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#8B3DFF; --card:#FFFFFF; --text:#120018; --onbg:#FFFFFF;
+  --lime:#D4FF3A; --pink:#FF6BB5; --ink:#120018; --soft:#5B4A66;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){ --bg:#2A0C47; --card:#3B1663; --text:#F5EDFF; --soft:#CDBBE0; }
+}
+:root[data-theme="dark"]{ --bg:#2A0C47; --card:#3B1663; --text:#F5EDFF; --soft:#CDBBE0; }
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 90px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--onbg);font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-size:17px;line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+svg{max-width:100%}
+.disp{font-family:"ZCOOL QingKe HuangYou","Noto Sans SC",sans-serif;font-weight:400;letter-spacing:.01em}
+.lat{font-family:"Bricolage Grotesque","Noto Sans SC",sans-serif;font-weight:800}
+:focus-visible{outline:4px solid var(--lime);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+.box{background:var(--card);color:var(--text);border:3px solid var(--ink);border-radius:20px;box-shadow:6px 6px 0 var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:3px solid var(--ink);border-radius:999px;padding:10px 22px;font-weight:900;font-size:16px;box-shadow:4px 4px 0 var(--ink);transition:transform .1s, box-shadow .1s;cursor:pointer;font-family:inherit}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.btn.lime{background:var(--lime);color:var(--ink)}
+.btn.pink{background:var(--pink);color:var(--ink)}
+.btn.white{background:#fff;color:var(--ink)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:3px solid var(--ink)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:12px}
+.logo{font-size:28px;display:flex;align-items:center;gap:8px}
+.nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0;font-weight:700;font-size:15px}
+.nav ul a:hover{color:var(--lime)}
+@media(max-width:760px){.nav ul{display:none}.logo{font-size:24px}.nav .btn{padding:8px 16px;font-size:14px}}
+.ripebar{height:10px;background:var(--ink);position:relative}
+.ripebar i{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,#B5E04A,#B04BD8 60%,#5A1478)}
+.ripebar span{position:absolute;right:10px;top:12px;font-size:12px;font-weight:900;background:var(--lime);color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:0 10px;line-height:20px}
+
+/* tape */
+.tape{background:var(--lime);color:var(--ink);border-block:3px solid var(--ink);overflow:hidden;white-space:nowrap;transform:rotate(-2deg);margin:28px -20px;font-size:26px}
+.tape div{display:inline-block;padding:8px 0;animation:run 22s linear infinite}
+.tape b{margin:0 22px}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding:50px 0 30px}
+.hero h1{font-size:clamp(96px,15vw,200px);line-height:.88;margin:0;color:#fff;text-shadow:6px 6px 0 var(--ink);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill}
+.hero h1 .row2{display:block;color:var(--lime)}
+.stickers{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 22px}
+.stk{border:3px solid var(--ink);border-radius:12px;padding:4px 14px;font-weight:900;color:var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.stk.a{background:var(--pink);transform:rotate(-4deg)}
+.stk.b{background:#fff;transform:rotate(3deg)}
+.stk.c{background:var(--lime);transform:rotate(-1deg)}
+.hero .say{font-size:clamp(20px,2.6vw,28px);font-weight:900;margin:0 0 24px}
+.ca{display:flex;align-items:center;gap:10px;padding:8px 8px 8px 18px;max-width:560px}
+.ca .lbl{font-weight:900;font-size:14px;white-space:nowrap}
+.ca code{flex:1;font-family:ui-monospace,Menlo,monospace;font-size:14px;overflow-x:auto;white-space:nowrap}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
+.cluster{position:relative;text-align:center}
+.cluster svg{width:100%;max-width:420px;filter:drop-shadow(8px 8px 0 var(--ink));cursor:pointer;touch-action:manipulation}
+.cluster .hint{position:absolute;top:8%;right:0;transform:rotate(8deg);background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:14px;padding:6px 12px;font-weight:900;font-size:15px;box-shadow:3px 3px 0 var(--ink)}
+.grape{transition:transform .25s cubic-bezier(.3,1.8,.5,1);transform-box:fill-box;transform-origin:center}
+.grape.pop{transform:scale(1.18)}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:30px}.cluster{order:-1}.cluster svg{max-width:280px}}
+
+/* sections */
+section{padding:80px 0}
+.h2{font-size:clamp(52px,8vw,96px);line-height:1;margin:0 0 10px;color:#fff;-webkit-text-stroke:2.5px var(--ink);paint-order:stroke fill;text-shadow:5px 5px 0 var(--ink)}
+.lead{font-weight:700;max-width:32em;margin:0 0 40px;opacity:.92}
+
+/* lyrics */
+.verses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.verse{padding:30px 30px 26px}
+.verse:nth-child(1){transform:rotate(-1.5deg)}
+.verse:nth-child(2){transform:rotate(1.2deg);background:var(--lime);color:var(--ink)}
+.verse:nth-child(3){transform:rotate(.8deg);background:var(--pink);color:var(--ink)}
+.verse:nth-child(4){transform:rotate(-1deg)}
+.verse p{margin:0;font-size:clamp(30px,3.6vw,42px);line-height:1.3}
+.verse small{display:block;margin-top:16px;font-weight:900;font-size:14px;opacity:.7}
+@media(max-width:700px){.verses{grid-template-columns:1fr}}
+
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;counter-reset:s}
+.step{padding:22px;position:relative}
+.step .n{position:absolute;top:-18px;left:18px;background:var(--ink);color:var(--lime);border-radius:999px;padding:0 12px;font-size:15px;line-height:30px}
+.step svg{width:54px;height:54px;margin:6px 0 4px}
+.step h3{margin:0;font-size:40px;line-height:1.1}
+.step .goal{font-weight:900;margin:6px 0}
+.step p{margin:0;font-size:15px;color:var(--soft)}
+@media(max-width:900px){.road{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:34px}}
+@media(max-width:520px){.road{grid-template-columns:1fr}}
+
+/* token */
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.tile{padding:20px}
+.tile dt{font-weight:700;font-size:14px;color:var(--soft)}
+.tile dd{margin:2px 0 0;font-size:30px;line-height:1.2}
+.tile dd a{font-family:"Noto Sans SC",sans-serif;font-size:14px;font-weight:900;text-decoration:underline}
+.tile.hl{background:var(--lime);color:var(--ink)}.tile.hl dt{color:var(--ink)}
+@media(max-width:900px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* wall */
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}
+.note{padding:20px;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);color:var(--ink);border-radius:6px}
+.note p{margin:0 0 10px;font-size:19px;font-weight:900;line-height:1.45}
+.note span{font-size:13px;font-weight:700;opacity:.6}
+.note:nth-child(3n+1){background:#fff;transform:rotate(-2deg)}
+.note:nth-child(3n+2){background:var(--lime);transform:rotate(1.5deg)}
+.note:nth-child(3n){background:var(--pink);transform:rotate(-.5deg)}
+.wallcta{margin-top:36px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-weight:700}
+
+footer{border-top:3px solid var(--ink);background:var(--ink);color:#CDBBE0;padding:50px 0 40px;font-size:14px}
+footer .big{font-size:clamp(48px,9vw,110px);color:var(--lime);line-height:1;margin:0 0 24px}
+footer .links{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+footer p{max-width:54em;margin:0 0 8px}
+
+@media (prefers-reduced-motion:reduce){.tape div{animation:none}html{scroll-behavior:auto}.grape{transition:none}}
+
+/* ===== wine press ===== */
+.press{position:relative;display:inline-block;width:100%;max-width:420px}
+.glass{position:absolute;right:-6px;bottom:4px;width:88px;text-align:center;pointer-events:none}
+.glass svg{width:88px;filter:drop-shadow(4px 4px 0 var(--ink))}
+.glass b{display:inline-block;font-size:13px;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:0 10px;margin-top:2px}
+.sound{position:absolute;left:0;top:4%;width:42px;height:42px;border-radius:50%;border:3px solid var(--ink);background:#fff;box-shadow:3px 3px 0 var(--ink);font-size:18px;cursor:pointer}
+.drop{position:absolute;width:13px;height:13px;border-radius:50%;background:#7A1F9E;border:2px solid var(--ink);pointer-events:none;z-index:4}
+.done{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%) rotate(-3deg);width:min(300px,86%);padding:22px 20px;text-align:center;z-index:5}
+.done[hidden]{display:none}
+.done p{margin:0 0 4px;font-size:34px;line-height:1.2}
+.done small{display:block;font-weight:700;margin-bottom:14px}
+.confetti{position:fixed;top:-24px;width:11px;height:17px;z-index:60;pointer-events:none;border:2px solid var(--ink)}
+@media(max-width:860px){.press{max-width:300px}.glass{width:70px}.glass svg{width:70px}}
+
+/* ===== hold challenge ===== */
+.game{padding:22px;position:relative;overflow:hidden;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.hud{display:flex;justify-content:space-between;gap:16px}
+.hud small{display:block;font-weight:700;color:var(--soft);font-size:13px}
+.hud b{font-size:clamp(30px,5vw,48px);line-height:1.1}
+.hud .r{text-align:right}
+.neg{color:#E0245E}.pos{color:#3E9A1E}
+#hChart{width:100%;height:220px;display:block;margin:10px 0}
+.tempt{min-height:56px;text-align:center}
+.tempt span{display:inline-block;background:var(--pink);color:var(--ink);border:3px solid var(--ink);border-radius:14px;padding:6px 14px;font-weight:900;box-shadow:3px 3px 0 var(--ink);transform:rotate(-2deg)}
+.holdbtn{display:block;margin:6px auto 4px;width:min(240px,64vw);aspect-ratio:1;border-radius:50%;border:4px solid var(--ink);background:var(--lime);color:var(--ink);font-size:clamp(34px,6vw,46px);box-shadow:8px 8px 0 var(--ink);cursor:pointer;touch-action:none;line-height:1.1}
+.holdbtn small{display:block;font-family:"Noto Sans SC",sans-serif;font-size:14px;font-weight:900}
+.holdbtn.on{transform:translate(6px,6px);box-shadow:2px 2px 0 var(--ink);background:var(--pink)}
+.game.shake{animation:shake .22s infinite}
+@keyframes shake{0%,100%{transform:translate(0)}25%{transform:translate(-4px,2px)}75%{transform:translate(4px,-2px)}}
+.result{position:absolute;inset:0;background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;z-index:3}
+.result[hidden]{display:none}
+.rt{font-size:clamp(60px,11vw,104px);line-height:1;margin:0}
+.result p{margin:8px 0;font-weight:700}
+.ra{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+
+/* ===== calculator ===== */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.form{padding:24px}
+.form label{display:block;font-weight:900;margin-bottom:16px}
+.form input{display:block;width:100%;margin-top:6px;font:inherit;font-size:22px;font-weight:700;padding:10px 14px;border:3px solid var(--ink);border-radius:12px;background:#fff;color:#120018}
+.err{color:#E0245E;font-weight:900;min-height:1.6em;margin:10px 0 0}
+.out{padding:26px;display:flex;flex-direction:column;justify-content:center;min-height:320px}
+.out .empty{font-weight:700;color:var(--soft);font-size:18px}
+.out small{font-weight:700;color:var(--soft)}
+.out .big{font-size:clamp(44px,7vw,74px);line-height:1.1;color:#E0245E;word-break:break-all}
+.out .detail{margin:6px 0 0;font-weight:700}
+.verdict{font-size:clamp(28px,3.4vw,36px);line-height:1.3;margin:16px 0 18px}
+@media(max-width:760px){.calc{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){.game.shake{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="logo disp">🍇 葡萄成熟时</a>
+    <ul>
+      <li><a href="#lyrics">布道书</a></li>
+      <li><a href="#hold">HOLD 挑战</a></li>
+      <li><a href="#calc">卖飞计算器</a></li>
+      <li><a href="#road">成熟之路</a></li>
+      <li><a href="#token">代币</a></li>
+      <li><a href="#wall">卖飞墙</a></li>
+    </ul>
+    <a class="btn lime" href="https://flap.sh/bnb/0xc9919a3b099e818a03437aebd49ab954a97d7777" target="_blank" rel="noopener">立即买入</a>
+  </div>
+  <div class="ripebar" aria-hidden="true"><i id="ripeFill"></i><span id="ripePct">成熟度 0%</span></div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <h1 class="disp">葡萄<span class="row2">成熟时</span></h1>
+      <div class="stickers">
+        <span class="stk a lat">$TICKER</span>
+        <span class="stk b lat">BNB CHAIN</span>
+        <span class="stk c">1% 税 · 全部销毁</span>
+      </div>
+      <p class="say">谁都卖飞过，哪个没有？</p>
+      <div class="box ca">
+        <span class="lbl">CA</span>
+        <code id="caText">0xc9919a3b099e818A03437AeBD49aB954A97d7777</code>
+        <button class="btn lime" id="copyBtn" type="button">复制</button>
+      </div>
+      <div class="cta">
+        <a class="btn pink" href="https://flap.sh/bnb/0xc9919a3b099e818a03437aebd49ab954a97d7777" target="_blank" rel="noopener">去 flap.sh 买入</a>
+        <a class="btn white" href="https://dexscreener.com/bsc/0xc9919a3b099e818A03437AeBD49aB954A97d7777" target="_blank" rel="noopener">DexScreener</a>
+        <a class="btn white" href="https://x.com/ftop63" target="_blank" rel="noopener">关注推特</a>
+      </div>
+    </div>
+    <div class="cluster">
+      <div class="press">
+        <svg id="grapes" viewBox="0 0 300 380" role="img" aria-label="一串葡萄，点击可以踩出果汁酿酒" tabindex="0"></svg>
+        <div class="glass" aria-hidden="true">
+          <svg viewBox="0 0 80 140">
+            <defs><clipPath id="bowl"><path d="M12 10 h56 l-5 48 a23 23 0 0 1 -46 0 z"/></clipPath></defs>
+            <path d="M12 10 h56 l-5 48 a23 23 0 0 1 -46 0 z" fill="#fff"/>
+            <rect id="wine" x="0" y="82" width="80" height="0" fill="#7A1F9E" clip-path="url(#bowl)"/>
+            <path d="M12 10 h56 l-5 48 a23 23 0 0 1 -46 0 z" fill="none" stroke="#120018" stroke-width="4"/>
+            <path d="M40 81 v40 M24 126 h32" stroke="#120018" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          <b id="winePct">0%</b>
+        </div>
+        <button class="sound" id="soundBtn" type="button" aria-label="关闭音效">🔊</button>
+        <div class="box done" id="wineDone" hidden>
+          <p class="disp">酿好了 🍷</p>
+          <small>这一杯，敬每一次卖飞。</small>
+          <button class="btn lime" id="wineAgain" type="button">再酿一杯</button>
+        </div>
+      </div>
+      <span class="hint">狂戳葡萄，酿一杯</span>
+    </div>
+  </div>
+
+  <div class="tape disp" aria-hidden="true"><div>
+    <b>谁都卖飞过</b>✦<b>哪个没有</b>✦<b>你要 HOLD 住</b>✦<b>再 HOLD 住</b>✦<b>就算暴跌</b>✦<b>错的狗乃必经的配菜</b>✦
+    <b>谁都卖飞过</b>✦<b>哪个没有</b>✦<b>你要 HOLD 住</b>✦<b>再 HOLD 住</b>✦<b>就算暴跌</b>✦<b>错的狗乃必经的配菜</b>✦
+  </div></div>
+
+  <section id="lyrics">
+    <div class="wrap">
+      <h2 class="h2 disp">布道书</h2>
+      <p class="lead">一首写给链上所有被割、卖飞、还没下车的人的歌。全文在社区置顶。</p>
+      <div class="verses">
+        <div class="box verse disp"><p>差不多破产<br>一早一晚还是割肉<br>卖飞几多次<br>悉心布道全力灌注</p><small>第一章 · 枯枝</small></div>
+        <div class="box verse disp"><p>你要 hold 住<br>再 hold 住<br>就算暴跌<br>始终要 hold 住</p><small>第二章 · 信仰</small></div>
+        <div class="box verse disp"><p>一千只土狗<br>一些需要清泪灌溉<br>错的狗<br>乃必经的配菜</p><small>第三章 · 土狗</small></div>
+        <div class="box verse disp"><p>别让土狗<br>害你伤得一夜白头<br>谁都卖飞过<br>哪个没有？</p><small>第四章 · 成熟</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hold">
+    <div class="wrap">
+      <h2 class="h2 disp">HOLD 住挑战</h2>
+      <p class="lead">按住按钮别松手。图会跌，群会吵，诱惑会来。松手就算卖飞，看看你能撑到第几秒。</p>
+      <div class="box game" id="game">
+        <div class="hud">
+          <div><small>坚持</small><b class="lat" id="hTime">0.00s</b></div>
+          <div class="r"><small>浮盈</small><b class="lat" id="hPnl">0%</b></div>
+        </div>
+        <canvas id="hChart" aria-label="模拟价格走势"></canvas>
+        <div class="tempt" id="hTempt" aria-live="polite"></div>
+        <button class="holdbtn disp" id="hBtn" type="button">按住<br>HOLD<small>松手 = 卖飞</small></button>
+        <div class="result" id="hResult" hidden>
+          <p class="rt disp" id="rTitle"></p>
+          <p id="rLine"></p>
+          <p id="rQuip"></p>
+          <div class="ra">
+            <button class="btn lime" id="hAgain" type="button">再来一次</button>
+            <button class="btn white" id="hCopy" type="button">复制战绩</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calc">
+    <div class="wrap">
+      <h2 class="h2 disp">卖飞计算器</h2>
+      <p class="lead">算一算那次卖飞到底让你少赚了多少。只在你自己的浏览器里算，不会上传任何数据。</p>
+      <div class="calc">
+        <div class="box form">
+          <label>当时投入多少 U<input id="cAmt" type="number" inputmode="decimal" min="0" step="any" value="100"></label>
+          <label>卖出时是几倍<input id="cSell" type="number" inputmode="decimal" min="0" step="any" value="3"></label>
+          <label>后来最高涨到几倍<input id="cPeak" type="number" inputmode="decimal" min="0" step="any" value="50"></label>
+          <button class="btn pink" id="cGo" type="button">算算有多痛</button>
+          <p class="err" id="cErr" aria-live="polite"></p>
+        </div>
+        <div class="box out" id="cOut" aria-live="polite">
+          <p class="empty">填好左边三个数字，点「算算有多痛」。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="road">
+    <div class="wrap">
+      <h2 class="h2 disp">成熟之路</h2>
+      <p class="lead">不写季度，只看葡萄。每过一个市值节点，这串葡萄就熟一点。</p>
+      <div class="road">
+        <div class="box step"><span class="n lat">01</span>
+          <svg viewBox="0 0 54 54"><circle cx="27" cy="30" r="18" fill="#B5E04A" stroke="#120018" stroke-width="3"/><path d="M27 12 q4 -8 12 -8" stroke="#120018" stroke-width="3" fill="none"/></svg>
+          <h3 class="disp">发芽</h3><p class="goal">上线 · 社区成立</p><p>flap.sh 内盘开盘，推特开张。</p></div>
+        <div class="box step"><span class="n lat">02</span>
+          <svg viewBox="0 0 54 54"><circle cx="27" cy="30" r="18" fill="#9BC74A" stroke="#120018" stroke-width="3"/><path d="M27 12 q4 -8 12 -8" stroke="#120018" stroke-width="3" fill="none"/></svg>
+          <h3 class="disp">开花</h3><p class="goal">内盘毕业</p><p>自动进入 PancakeSwap V3，歌词二创与 MEME 大赛。</p></div>
+        <div class="box step"><span class="n lat">03</span>
+          <svg viewBox="0 0 54 54"><circle cx="27" cy="30" r="18" fill="#B04BD8" stroke="#120018" stroke-width="3"/><path d="M27 12 q4 -8 12 -8" stroke="#120018" stroke-width="3" fill="none"/></svg>
+          <h3 class="disp">结果</h3><p class="goal">市值 $1M</p><p>申请 CMC / CoinGecko，KOL 联动。</p></div>
+        <div class="box step"><span class="n lat">04</span>
+          <svg viewBox="0 0 54 54"><path d="M14 8 h26 l-2 18 a11 11 0 0 1 -22 0 z" fill="#5A1478" stroke="#120018" stroke-width="3"/><path d="M27 37 v10 M18 48 h18" stroke="#120018" stroke-width="3"/></svg>
+          <h3 class="disp">酿酒</h3><p class="goal">市值 $10M</p><p>到这一步，智慧都酿成红酒了。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="token">
+    <div class="wrap">
+      <h2 class="h2 disp">代币信息</h2>
+      <p class="lead">链上能查的都摆在这。别信截图，<a href="https://bscscan.com/token/0xc9919a3b099e818A03437AeBD49aB954A97d7777" target="_blank" rel="noopener" style="text-decoration:underline">自己去 BscScan 看</a>。</p>
+      <dl class="tiles">
+        <div class="box tile hl"><dt>总量</dt><dd class="lat">1,000,000,000</dd></div>
+        <div class="box tile"><dt>买卖税 · 100% 销毁</dt><dd class="lat">1% / 1%</dd></div>
+        <div class="box tile"><dt>底池</dt><dd class="disp">flap.sh 内盘 <a href="https://flap.sh/bnb/0xc9919a3b099e818a03437aebd49ab954a97d7777" target="_blank" rel="noopener">去看看</a></dd></div>
+        <div class="box tile"><dt>合约</dt><dd class="disp">链上可查 <a href="https://bscscan.com/token/0xc9919a3b099e818A03437AeBD49aB954A97d7777" target="_blank" rel="noopener">BscScan</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="wall">
+    <div class="wrap">
+      <h2 class="h2 disp">卖飞忏悔墙</h2>
+      <p class="lead">说出来就不痛了。把你最离谱的一次卖飞发到推特并 @ 我们，精选会被贴上墙。</p>
+      <div class="wall">
+        <div class="note"><p>三倍就跑，第二天看它五十倍。</p><span>示例投稿</span></div>
+        <div class="note"><p>拿了半年，解套当天卖了，然后它开始涨。</p><span>示例投稿</span></div>
+        <div class="note"><p>群里喊我上车我嫌贵，现在我是群里最贵的笑话。</p><span>示例投稿</span></div>
+        <div class="note"><p>止损设得很专业，插针插得更专业。</p><span>示例投稿</span></div>
+        <div class="note"><p>错的狗全买了，对的狗只看了一眼。</p><span>示例投稿</span></div>
+        <div class="note"><p>这次我不卖了。</p><span>示例投稿</span></div>
+      </div>
+      <div class="wallcta">
+        <a class="btn lime" href="https://x.com/ftop63" target="_blank" rel="noopener">去推特投稿</a>
+        <span>金额可以打码</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="big disp">HOLD 住，等它熟。</p>
+    <div class="links">
+      <a class="btn lime" href="https://x.com/ftop63" target="_blank" rel="noopener">X / 推特</a>
+    </div>
+    <p>本项目歌词为社区致敬改编作品，与原曲词曲作者、演唱者及唱片公司无任何关联。</p>
+    <p>$TICKER 是一枚没有内在价值、不承诺任何收益的 MEME 币，仅供娱乐。加密资产波动极大，请只用亏得起的钱参与，自行判断风险。</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const NS='http://www.w3.org/2000/svg', svg=document.getElementById('grapes');
+  const mk=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e};
+  svg.appendChild(mk('path',{d:'M150 70 C150 46 160 30 180 16',stroke:'#120018','stroke-width':8,fill:'none','stroke-linecap':'round'}));
+  svg.appendChild(mk('path',{d:'M160 40 C188 8 246 12 270 34 C244 42 234 70 200 72 C180 74 166 60 160 40 Z',fill:'#D4FF3A',stroke:'#120018','stroke-width':4}));
+  svg.appendChild(mk('path',{d:'M164 42 C196 40 230 36 262 34',stroke:'#120018','stroke-width':3,fill:'none'}));
+
+  const rows=[5,6,5,5,4,3,2,1], r=23, cx=150, top=86;
+  const stops=[[181,224,74],[155,199,74],[176,75,216],[90,20,120]];
+  const color=k=>{const s=k*3,i=Math.min(2,Math.floor(s)),f=s-i,a=stops[i],b=stops[i+1];
+    return `rgb(${a.map((v,j)=>Math.round(v+(b[j]-v)*f)).join(',')})`};
+  const grapes=[]; let idx=0;
+  rows.forEach((n,row)=>{for(let i=0;i<n;i++){
+    const x=cx+(i-(n-1)/2)*r*1.85+(row%2?3:-3), y=top+row*r*1.58;
+    const g=mk('g',{class:'grape'});
+    const c=mk('circle',{cx:x,cy:y,r:r,stroke:'#120018','stroke-width':4});
+    g.appendChild(c);
+    g.appendChild(mk('ellipse',{cx:x-r*.38,cy:y-r*.36,rx:r*.24,ry:r*.14,fill:'rgba(255,255,255,.7)',transform:`rotate(-35 ${x-r*.38} ${y-r*.36})`}));
+    svg.appendChild(g);
+    grapes.push({g,c,t:((idx*0.618034)%1)*.8+(row/rows.length)*.2,boost:0}); idx++;
+  }});
+
+  let p=0;
+  function paint(){
+    grapes.forEach(o=>{const k=Math.max(0,Math.min(1,(p-o.t*.75)/.25))+o.boost;o.c.setAttribute('fill',color(Math.min(1,k)))});
+  }
+  svg.addEventListener('click',e=>{
+    const g=e.target.closest('.grape'); let o=grapes.find(x=>x.g===g);
+    if(!o){o=grapes.filter(x=>x.boost<1).sort(()=>Math.random()-.5)[0]; if(!o)return;}
+    o.boost=Math.min(1,o.boost+.5); o.g.classList.add('pop'); setTimeout(()=>o.g.classList.remove('pop'),220); paint();
+  });
+
+  const fill=document.getElementById('ripeFill'), pct=document.getElementById('ripePct');
+  let tick=false;
+  function update(){
+    const max=document.documentElement.scrollHeight-innerHeight;
+    p=max>0?Math.min(1,scrollY/max):0;
+    fill.style.width=(p*100)+'%'; pct.textContent='成熟度 '+Math.round(p*100)+'%';
+    paint(); tick=false;
+  }
+  addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(update)}},{passive:true});
+  addEventListener('resize',update); update();
+
+  const btn=document.getElementById('copyBtn'), ca=document.getElementById('caText').textContent.trim();
+  btn.addEventListener('click',async()=>{
+    let ok=false;
+    try{await navigator.clipboard.writeText(ca);ok=true}catch(e){
+      try{const t=document.createElement('textarea');t.value=ca;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();ok=document.execCommand('copy');t.remove()}catch(_){}
+    }
+    btn.textContent=ok?'已复制 ✓':'长按复制'; setTimeout(()=>btn.textContent='复制',1800);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const CA = document.getElementById('caText').textContent.trim();
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  async function copyText(t){
+    try{await navigator.clipboard.writeText(t);return true}catch(e){
+      try{const a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();const ok=document.execCommand('copy');a.remove();return ok}catch(_){return false}
+    }
+  }
+  function flash(btn,txt){const o=btn.textContent;btn.textContent=txt;setTimeout(()=>btn.textContent=o,1800)}
+
+  /* ---------- sound ---------- */
+  let actx=null, soundOn=true;
+  function ctx(){if(!actx){try{actx=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}return actx}
+  function pop(freq){
+    if(!soundOn)return; const c=ctx(); if(!c)return;
+    const o=c.createOscillator(), g=c.createGain(), t=c.currentTime;
+    o.type='sine'; o.frequency.setValueAtTime(freq||520,t); o.frequency.exponentialRampToValueAtTime(110,t+.14);
+    g.gain.setValueAtTime(.35,t); g.gain.exponentialRampToValueAtTime(.001,t+.16);
+    o.connect(g).connect(c.destination); o.start(t); o.stop(t+.18);
+  }
+  function chord(){[523,659,784,1046].forEach((f,i)=>setTimeout(()=>pop(f),i*90))}
+  const sb=document.getElementById('soundBtn');
+  sb.addEventListener('click',e=>{e.stopPropagation();soundOn=!soundOn;sb.textContent=soundOn?'🔊':'🔇';sb.setAttribute('aria-label',soundOn?'关闭音效':'打开音效')});
+
+  /* ---------- confetti ---------- */
+  function confetti(){
+    if(reduce)return;
+    const cols=['#D4FF3A','#FF6BB5','#FFFFFF','#B04BD8','#5A1478'];
+    for(let i=0;i<70;i++){
+      const d=document.createElement('div'); d.className='confetti';
+      d.style.left=Math.random()*100+'vw'; d.style.background=cols[i%cols.length];
+      document.body.appendChild(d);
+      const dur=1800+Math.random()*1600, dx=(Math.random()-.5)*200, rot=(Math.random()-.5)*900;
+      d.animate([{transform:'translate(0,0) rotate(0)'},{transform:`translate(${dx}px,${innerHeight+60}px) rotate(${rot}deg)`}],{duration:dur,easing:'cubic-bezier(.3,.6,.6,1)',delay:Math.random()*400,fill:'forwards'}).onfinish=()=>d.remove();
+    }
+  }
+
+  /* ---------- wine press ---------- */
+  const gsvg=document.getElementById('grapes'), press=gsvg.parentElement;
+  const wine=document.getElementById('wine'), wp=document.getElementById('winePct');
+  const doneBox=document.getElementById('wineDone');
+  let level=0, done=false;
+  function setLevel(){const h=level*72;wine.setAttribute('y',82-h);wine.setAttribute('height',h);wp.textContent=Math.round(level*100)+'%'}
+  function splash(x,y){
+    if(reduce)return;
+    for(let i=0;i<9;i++){
+      const d=document.createElement('div'); d.className='drop';
+      d.style.left=(x-6)+'px'; d.style.top=(y-6)+'px';
+      const s=.6+Math.random()*.8; d.style.width=d.style.height=(13*s)+'px';
+      press.appendChild(d);
+      const a=Math.random()*Math.PI*2, v=40+Math.random()*60;
+      const dx=Math.cos(a)*v, dy=Math.sin(a)*v-30;
+      d.animate([{transform:'translate(0,0)',opacity:1},{transform:`translate(${dx*.6}px,${dy*.6}px)`,opacity:1,offset:.4},{transform:`translate(${dx}px,${dy+90}px)`,opacity:0}],{duration:650,easing:'ease-out'}).onfinish=()=>d.remove();
+    }
+  }
+  function stomp(x,y){
+    if(done)return;
+    level=Math.min(1,level+.05); setLevel(); splash(x,y); pop(380+Math.random()*300);
+    if(level>=1){done=true;setTimeout(()=>{doneBox.hidden=false;chord();confetti()},250)}
+  }
+  gsvg.addEventListener('click',e=>{const r=press.getBoundingClientRect();stomp(e.clientX-r.left,e.clientY-r.top)});
+  gsvg.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();const r=gsvg.getBoundingClientRect(),pr=press.getBoundingClientRect();gsvg.dispatchEvent(new MouseEvent('click',{bubbles:true,clientX:r.left+r.width/2,clientY:r.top+r.height/2}))}});
+  document.getElementById('wineAgain').addEventListener('click',()=>{level=0;done=false;setLevel();doneBox.hidden=true});
+  setLevel();
+
+  /* ---------- HOLD challenge ---------- */
+  const game=document.getElementById('game'), btn=document.getElementById('hBtn');
+  const tEl=document.getElementById('hTime'), pEl=document.getElementById('hPnl'), tempt=document.getElementById('hTempt');
+  const res=document.getElementById('hResult'), cv=document.getElementById('hChart'), g2=cv.getContext('2d');
+  const LIMIT=30;
+  const msgs=[[2,'-10% 了，先跑一半？'],[5,'群友：我已经跑了'],[8,'KOL：这是貔貅，快跑！'],[11,'现在卖还能拿回三成'],[14,'你老婆问你钱呢'],[17,'最后的机会！真的最后！'],[20,'……等等？'],[23,'葡萄……好像熟了'],[27,'别松手！！！']];
+  let holding=false, t0=0, prices=[1], lastSample=0, price=1, raf=0, mi=0, lastT=0, lastPnl=0;
+
+  function size(){const d=devicePixelRatio||1;cv.width=cv.clientWidth*d;cv.height=cv.clientHeight*d;g2.setTransform(d,0,0,d,0,0);draw()}
+  function draw(){
+    const w=cv.clientWidth,h=cv.clientHeight; g2.clearRect(0,0,w,h);
+    const max=Math.max(1.25,...prices)*1.05, n=Math.max(prices.length,60);
+    const X=i=>i/(n-1)*w, Y=p=>h-6-(p/max)*(h-12);
+    g2.setLineDash([6,6]); g2.strokeStyle=getComputedStyle(game).color; g2.globalAlpha=.35; g2.lineWidth=2;
+    g2.beginPath(); g2.moveTo(0,Y(1)); g2.lineTo(w,Y(1)); g2.stroke(); g2.setLineDash([]); g2.globalAlpha=1;
+    const line=()=>{g2.beginPath();prices.forEach((p,i)=>i?g2.lineTo(X(i),Y(p)):g2.moveTo(X(i),Y(p)))};
+    g2.lineJoin='round'; g2.lineCap='round';
+    line(); g2.strokeStyle='#120018'; g2.lineWidth=8; g2.stroke();
+    line(); g2.strokeStyle=price<1?'#FF4D7E':'#7BD93A'; g2.lineWidth=4.5; g2.stroke();
+  }
+  function target(t){return t<20?1-.9*Math.pow(t/20,.8):.1+(t-20)/10*7.67}
+  function fmtPnl(p){const v=(p-1)*100;return (v>0?'+':'')+v.toFixed(0)+'%'}
+  function loop(now){
+    const t=Math.min(LIMIT,(now-t0)/1000);
+    if(now-lastSample>90){lastSample=now;price=Math.max(.03,target(t)*(1+(Math.random()-.5)*.12));prices.push(price);if(prices.length>320)prices.shift();draw()}
+    tEl.textContent=t.toFixed(2)+'s'; pEl.textContent=fmtPnl(price); pEl.className='lat '+(price<1?'neg':'pos');
+    while(mi<msgs.length&&t>=msgs[mi][0]){tempt.innerHTML='<span>'+msgs[mi][1]+'</span>';mi++}
+    game.classList.toggle('shake',t>5&&t<20);
+    lastT=t; lastPnl=price;
+    if(t>=LIMIT){finish(true);return}
+    raf=requestAnimationFrame(loop);
+  }
+  function start(){
+    if(holding||!res.hidden)return; holding=true; btn.classList.add('on');
+    t0=performance.now(); prices=[1]; price=1; lastSample=0; mi=0; tempt.innerHTML='';
+    raf=requestAnimationFrame(loop);
+  }
+  const ranks=[[3,'纸手','葡萄还没开花，你就下车了。'],[10,'韭菜','跌一点就慌，下次多 hold 一会儿。'],[20,'老韭菜','卖在了离地板最近的地方，经典。'],[30,'钻石手','熬过了暴跌，可惜没等到最后一口。']];
+  function finish(win){
+    if(!holding)return; holding=false; cancelAnimationFrame(raf); btn.classList.remove('on'); game.classList.remove('shake');
+    let title='酿酒师', quip='谁都卖飞过，但这次你没有。';
+    if(!win){for(const r of ranks){if(lastT<r[0]){title=r[1];quip=r[2];break}}}
+    document.getElementById('rTitle').textContent=title;
+    document.getElementById('rLine').textContent=win?`撑满 ${LIMIT} 秒，拿到 ${fmtPnl(lastPnl)}`:`坚持 ${lastT.toFixed(2)} 秒，卖在 ${fmtPnl(lastPnl)}`;
+    document.getElementById('rQuip').textContent=quip;
+    res.dataset.share=`我在「葡萄成熟时」HOLD 住挑战坚持了 ${lastT.toFixed(2)} 秒，称号【${title}】，${win?'拿到':'卖在'} ${fmtPnl(lastPnl)}。你能撑多久？\nCA: ${CA}`;
+    res.hidden=false; if(win){chord();confetti()}else pop(220);
+  }
+  btn.addEventListener('pointerdown',e=>{e.preventDefault();try{btn.setPointerCapture(e.pointerId)}catch(_){}start()});
+  ['pointerup','pointercancel','lostpointercapture'].forEach(ev=>btn.addEventListener(ev,()=>finish(false)));
+  btn.addEventListener('keydown',e=>{if((e.key===' '||e.key==='Enter')&&!e.repeat){e.preventDefault();start()}});
+  btn.addEventListener('keyup',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();finish(false)}});
+  btn.addEventListener('contextmenu',e=>e.preventDefault());
+  document.getElementById('hAgain').addEventListener('click',()=>{res.hidden=true;prices=[1];price=1;tEl.textContent='0.00s';pEl.textContent='0%';pEl.className='lat';tempt.innerHTML='';draw();btn.focus()});
+  document.getElementById('hCopy').addEventListener('click',async e=>{flash(e.currentTarget,(await copyText(res.dataset.share))?'已复制 ✓':'复制失败，请截图')});
+  addEventListener('resize',size); size();
+
+  /* ---------- sell-too-early calculator ---------- */
+  const amt=document.getElementById('cAmt'), sell=document.getElementById('cSell'), peak=document.getElementById('cPeak');
+  const err=document.getElementById('cErr'), out=document.getElementById('cOut');
+  const money=v=>'$'+v.toLocaleString('en-US',{maximumFractionDigits:v<100?2:0});
+  document.getElementById('cGo').addEventListener('click',()=>{
+    const a=parseFloat(amt.value), s=parseFloat(sell.value), p=parseFloat(peak.value);
+    if(!(a>0)){err.textContent='请填写投入金额，要大于 0。';amt.focus();return}
+    if(!(s>0)){err.textContent='请填写卖出倍数，比如回本是 1，翻倍是 2。';sell.focus();return}
+    if(!(p>0)){err.textContent='请填写后来的最高倍数。';peak.focus();return}
+    if(p<s){err.textContent='最高倍数比卖出倍数还低，说明你卖在了顶上，恭喜。';peak.focus();return}
+    err.textContent='';
+    const got=a*s, could=a*p, miss=could-got, r=p/s;
+    let v;
+    if(r<=1)v='你卖在了最高点，这页不适合你。';
+    else if(r<2)v='还好，就当交学费。';
+    else if(r<5)v='错的狗，乃必经的配菜。';
+    else if(r<20)v='这一刀，够你一夜白头。';
+    else v='建议截图设成壁纸，每天看一遍，下次别卖。';
+    out.innerHTML=`<small>你少赚了</small><b class="lat big">${money(miss)}</b>
+      <p class="detail">实际拿到 ${money(got)}，本可以拿到 ${money(could)}，差了 ${r.toFixed(r<10?1:0)} 倍。</p>
+      <p class="verdict disp">${v}</p>
+      <div><button class="btn white" id="cCopy" type="button">复制结果</button></div>`;
+    const share=`那次卖飞让我少赚了 ${money(miss)}（本可以拿到 ${money(could)}）。${v}\n——「葡萄成熟时」卖飞计算器\nCA: ${CA}`;
+    document.getElementById('cCopy').addEventListener('click',async e=>{flash(e.currentTarget,(await copyText(share))?'已复制 ✓':'复制失败，请截图')});
+    if(r>=5)pop(200);
+  });
+})();
+</script>
+</body>
+</html>
